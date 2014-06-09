@@ -1,0 +1,54 @@
+@(formX: Form[Disciplina]) 
+@import helper._ 
+@import helper.twitterBootstrap._ 
+@main("GraCHa:Grafo de Conectividade de Competencias e Habilidades") {
+
+<section class="intro-section">
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1>Disciplina</h1>
+			</div>
+		</div>
+	<div class="panel panel-default">
+	
+		@helper.form(action = routes.DisciplinaController.salvar) {
+				<fieldset>
+					@helper.inputText(
+						formX("nome"),
+						'_label -> "Nome:",
+						'_showConstraints -> false
+						)
+					@helper.inputText(
+						formX("sigla"),
+						'_label -> "Sigla:",
+						'_showConstraints -> false
+						)
+					@helper.inputText(
+						formX("id"),
+						'_label -> "",
+						'style -> "display: none"
+						) 
+						
+				@select(formX("periodo.id"),
+				     options(models.Periodo.fPeriodos),
+				     '_default -> "--- Escolha um periodo ---",
+				     'id -> "periodo",
+				     '_label -> "Periodo:",
+				     '_showConstraints -> false)		
+
+				</fieldset>   
+				     <div class="actions">
+				            <input type="submit" class="btn btn-primary" value="Cadastrar">
+				    </div>
+				  }
+		
+		
+	</div>
+	</div>
+</section>
+
+
+}
+

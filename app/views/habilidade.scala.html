@@ -1,0 +1,39 @@
+@(habilidades: List[Habilidade]) 
+@import helper._ 
+@import helper.twitterBootstrap._ 
+@main("GraCHa:Grafo de Conectividade de Competencias e Habilidades") {
+	<section class="intro-section">
+       <div class="container">
+       		<div class="row">
+                <div class="col-lg-12"><h1>Habilidade</h1></div>
+            </div>
+		</div>
+		
+		<table class="table table-bordered table-condensed ">
+			<tr>
+				<td>Competência</td>
+				<td>Habilidade</td>
+				<td>Nível</td>
+				<td> <a class="btn btn-primary btn-xs" href="@routes.HabilidadeController.novo">Novo</a>
+				</td>
+			</tr>
+			
+				@for(habilidade <- habilidades) {
+					<tr>
+						<td>@habilidade.getCompetencia().getNome()</td>
+						<td>@habilidade.getDescricao()</td>
+						<td>@habilidade.getNivel()</td>
+						<td>
+							<a class="btn btn-primary btn-xs" href="@routes.HabilidadeController.editar(habilidade.getId())">Editar</a>
+							<a class="btn btn-primary btn-xs" href="@routes.HabilidadeController.excluir(habilidade.getId())">Excluir</a>
+						</td>
+					</tr>
+					
+				}
+				
+		</table>
+    </section>
+
+ 	
+}
+

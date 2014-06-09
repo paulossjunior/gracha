@@ -1,0 +1,50 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                             controllers.Application.index()
+
+GET     /in                           controllers.Application.in()
+
+GET     /out                          controllers.Application.out()
+
+GET     /competencias                 controllers.Application.competencias()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+#CADASTROS#
+
+
+GET  /periodo				            	controllers.PeriodoController.index() 
+GET  /periodo/novo							controllers.PeriodoController.novo()
+POST /periodo/salvar						controllers.PeriodoController.salvar()
+GET  /periodo/editar/:id 					controllers.PeriodoController.editar(id: Long)
+GET  /periodo/excluir/:id 					controllers.PeriodoController.excluir(id: Long)
+
+GET  /disciplina				            controllers.DisciplinaController.index() 
+GET  /disciplina/todas				        controllers.DisciplinaController.todas() 
+GET  /disciplina/novo					 	controllers.DisciplinaController.novo()
+POST /disciplina/salvar						controllers.DisciplinaController.salvar()
+GET  /disciplina/editar/:id 				controllers.DisciplinaController.editar(id: Long)
+GET  /disciplina/excluir/:id 				controllers.DisciplinaController.excluir(id: Long)
+
+GET  /competencia				            controllers.CompetenciaController.index() 
+GET  /competencia/novo					 	controllers.CompetenciaController.novo()
+POST /competencia/salvar					controllers.CompetenciaController.salvar()
+GET  /competencia/editar/:id 				controllers.CompetenciaController.editar(id: Long)
+GET  /competencia/excluir/:id 				controllers.CompetenciaController.excluir(id: Long)
+
+GET  /habilidade				            controllers.HabilidadeController.index() 
+GET  /habilidade/novo					 	controllers.HabilidadeController.novo()
+POST /habilidade/salvar						controllers.HabilidadeController.salvar()
+GET  /habilidade/editar/:id 				controllers.HabilidadeController.editar(id: Long)
+GET  /habilidade/excluir/:id 				controllers.HabilidadeController.excluir(id: Long)
+
+GET  /relacao				            	controllers.RelacaoController.index() 
+GET  /relacao/novo					 		controllers.RelacaoController.novo()
+POST /relacao/salvar						controllers.RelacaoController.salvar()
+GET  /relacao/editar/:id 					controllers.RelacaoController.editar(id: Long)
+GET  /relacao/excluir/:id 					controllers.RelacaoController.excluir(id: Long)
+GET  /relacao/todas				        	controllers.RelacaoController.todas() 

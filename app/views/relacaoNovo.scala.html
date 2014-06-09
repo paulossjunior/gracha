@@ -1,0 +1,61 @@
+@(formX: Form[Relacao])
+@import helper._ 
+@import helper.twitterBootstrap._ 
+@main("GraCHa:Grafo de Conectividade de Competencias e Habilidades") {
+<section class="intro-section">
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1>Relacao</h1>
+			</div>
+		</div>
+	<div class="panel panel-default">
+	
+		@helper.form(action = routes.RelacaoController.salvar) {
+				<fieldset>
+					@helper.inputText(
+						formX("verbo"),
+						'_label -> "Verbo:",
+						'_showConstraints -> false
+						)
+					@select(formX("disciplina.id"),
+				     options(models.Disciplina.fDisciplinas),
+				     '_default -> "--- Escolha uma disciplina ---",
+				     'id -> "disciplina",
+				     '_label -> "Disciplina:",
+				     '_showConstraints -> false)
+				     
+				     @select(formX("habilidade.id"),
+				     	options(models.Habilidade	.fHabilidade),
+				     	'_default -> "--- Escolha uma habilidade ---",
+				     	'id -> "habilidade",
+				     	'_label -> "Habilidade:",
+				     	'_showConstraints -> false)
+				     	
+				     @select(formX("TipoRelacao"),
+				     	options(models.TipoRelacao.fTipoRelacao()),
+				     	'_default -> "--- Escolha de Relação ---",
+				     	'id -> "tipoRelacao",
+				     	'_label -> "Tipo de Relacao:",
+				     	'_showConstraints -> false)	 		
+						
+					@helper.inputText(
+						formX("id"),
+						'_label -> "",
+						'style -> "display: none"
+						) 
+
+				</fieldset>   
+				     <div class="actions">
+				            <input type="submit" class="btn btn-primary" value="Cadastrar">
+				    </div>
+				  }
+		
+		
+	</div>
+	</div>
+</section>
+
+}
+

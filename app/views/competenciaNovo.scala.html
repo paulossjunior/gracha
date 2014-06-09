@@ -1,0 +1,42 @@
+@(formX: Form[Competencia]) 
+@import helper._ 
+@import helper.twitterBootstrap._ 
+@main("GraCHa:Grafo de Conectividade de Competencias e Habilidades") {
+
+<section class="intro-section">
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1>Conceito</h1>
+			</div>
+		</div>
+	<div class="panel panel-default">
+	
+		@helper.form(action = routes.CompetenciaController.salvar) {
+				<fieldset>
+					@helper.inputText(
+						formX("nome"),
+						'_label -> "Nome",
+						'_showConstraints -> false
+						)
+					@helper.inputText(
+						formX("id"),
+						'_label -> "",
+						'style -> "display: none"
+						) 
+						
+				</fieldset>   
+				     <div class="actions">
+				            <input type="submit" class="btn btn-primary" value="Cadastrar">
+				    </div>
+				  }
+		
+		
+	</div>
+	</div>
+</section>
+
+
+}
+

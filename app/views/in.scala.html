@@ -1,0 +1,32 @@
+@(relacoes: List[Relacao])
+@import helper._ 
+@import helper.twitterBootstrap._ 
+@main("GraCHa:Grafo de Conectividade de Competências e Habilidades") {
+
+<section class="intro-section">
+       <div class="container">
+       		<div class="row">
+                <div class="col-lg-12"><h1>Entrada</h1></div>
+            </div>
+		</div>
+		
+		<table class="table table-bordered table-hover table-condensed">
+			<tr>
+				<td><b>Competência</b></td>
+				<td><b>Relação</b></td>
+				<td><b>Nível</b></td>
+				<td><b>Disciplina</b></td>
+			</tr>
+			@for(relacao <- relacoes) {
+					<tr>
+						
+						<td>@relacao.getHabilidade().getCompetencia().getNome()</td>
+						<td>@relacao.getVerbo().toUpperCase()</td>
+						<td>@relacao.getHabilidade().getNivel()</td>
+						<td>@relacao.getDisciplina().getNome()</td>
+					</tr>
+				}
+		</table>
+    </section>
+
+}

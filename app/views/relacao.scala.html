@@ -1,0 +1,43 @@
+@(relacoes: List[Relacao]) 
+@import helper._ 
+@import helper.twitterBootstrap._ 
+@main("GraCHa:Grafo de Conectividade de Competencias e Habilidades") {
+	<section class="intro-section">
+       <div class="container">
+       		<div class="row">
+                <div class="col-lg-12"><h1>Relação</h1></div>
+            </div>
+		</div>
+		
+		<table class="table table-bordered table-condensed ">
+			<tr>
+				<td>Disciplina</td>
+				<td>Tipo Relacao</td>
+				<td>Relacao</td>
+				<td>Habilidade</td>
+				<td>Nível</td>
+				<td> <a class="btn btn-primary btn-xs" href="@routes.RelacaoController.novo">Novo</a>
+				</td>
+			</tr>
+			
+				@for(relacao <- relacoes) {
+					<tr>
+						<td>@relacao.getDisciplina().getNome()</td>
+						<td>@relacao.getTipoRelacao()</td>
+						<td>@relacao.getVerbo()</td>
+						<td>@relacao.getHabilidade().getDescricao()</td>
+						<td>@relacao.getHabilidade().getNivel()</td>
+						<td>
+							<a class="btn btn-primary btn-xs" href="@routes.RelacaoController.editar(relacao.getId())">Editar</a>
+							<a class="btn btn-primary btn-xs" href="@routes.RelacaoController.excluir(relacao.getId())">Excluir</a>
+						</td>
+					</tr>
+					
+				}
+				
+		</table>
+    </section>
+
+ 	
+}
+

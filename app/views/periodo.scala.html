@@ -1,0 +1,35 @@
+@(periodos: List[Periodo]) 
+@import helper._ 
+@import helper.twitterBootstrap._ 
+@main("GraCHa:Grafo de Conectividade de Competencias e Habilidades") {
+	<section class="intro-section">
+       <div class="container">
+       		<div class="row">
+                <div class="col-lg-12"><h1>Periodo</h1></div>
+            </div>
+		</div>
+		
+		<table class="table table-bordered table-condensed ">
+			<tr>
+				<td>Periodo</td>
+				<td>Disciplinas</td>
+				<td> <a class="btn btn-primary btn-xs" href="@routes.PeriodoController.novo">Novo</a>
+				</td>
+			</tr>
+				@for(periodo <- periodos) {
+					<tr>
+						<td>@periodo.getNome()</td>
+						<td>@for(disciplina <- periodo.getDisciplinas) {@disciplina.getNome() - }</td>
+						<td>
+							<a class="btn btn-primary btn-xs" href="@routes.PeriodoController.editar(periodo.getId())">Editar</a>
+							<a class="btn btn-primary btn-xs" href="@routes.PeriodoController.excluir(periodo.getId())">Excluir</a>
+						</td>
+					</tr>
+					
+				}
+		</table>
+    </section>
+
+ 	
+}
+
